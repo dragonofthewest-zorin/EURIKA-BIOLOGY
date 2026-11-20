@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title%}Users{% endblock %}
+
+{% block content %}
+<div class="hero"></div>
+        <style>
+            .hero {
+                    background-image: linear-gradient(rgba(203, 11, 11, 0.101), rgba(0, 0, 0, 0.5)),
+                                    url("{{ url_for('static', filename='images/internals.jpg') }}");
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    height: calc(100vh - 56px);
+                    
+                    
+                    
+                }
+        </style>
+    <h1>Users</h1>
+    <ol>
+        {% for user in ALL_users %}
+            <li>{{ user.username, user.age, user.education_level, password_hash }} 
+                <button onclick="deleteUser({{ user.id }})">Delete</button><a href="{{ url_for('show_user_details', id=user.id) }}">View Details</a>
+            </li>
+        {% endfor %}
+    </ol>
+   
+    <script type="text/javascript">
+        function deleteUser(id) {
+            fetch(`/delete_user/${id}`, {
+                method: 'DELETE'
+            }).then(response => {
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    console.error('Failed to delete user');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+    <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+</div>
+{% endblock %}

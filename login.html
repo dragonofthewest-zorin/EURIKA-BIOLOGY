@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+    
+{% block title %}Login{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+{% block content %}
+ <div class="hero">
+    <style>
+             .hero {
+                background-image: linear-gradient(rgba(203, 11, 11, 0.101), rgba(0, 0, 0, 0.5)),
+                                  url("{{ url_for('static', filename='images/still.jpg') }}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: calc(100vh - 56px);
+                
+                
+                
+            }
+     </style>
+     <span class="text-white">
+    <h1>Login to EURIKKA BIOLOGY</h1>
+    <p>Welcome to the EURIKKA Biology Login Page</p>
+    <p>Please enter your credentials to log in.</p>
+    
+    <form method="POST" action="{{ url_for('login') }}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="Login">
+        <a href="{{ url_for('index') }}" class="btn btn-primary ">Back</a>
+    </form>
+ </div>
+    {% endblock %}

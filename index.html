@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}EURIKKA BIOLOGY{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+    >
+{% endblock %}
+
+{% block content %}
+    <div class="hero">
+        <div class="container-fluid py-5 text-white">
+            <h1><span class="special">Welcome to EURIKKA! Biology</span></h1>
+            <p>Explore the fascinating world of Biology and learn about the various structures and systems that make up the human body.</p>
+        </div>
+    <a href="{{ url_for('add_user') }}" class="btn btn-primary">Register</a>
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+    <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+    <a href="{{ url_for('get_users') }}" class="btn btn-primary">Admin</a>
+    </div>
+    <style>
+         .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                              url("{{ url_for('static', filename='images/images (4).jpg') }}");
+            background-size:cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+    </style>
+
+{% endblock %}

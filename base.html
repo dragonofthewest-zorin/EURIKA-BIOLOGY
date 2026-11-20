@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}EURIKKA BIOLOGY{% endblock%}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    </head>
+    <body>
+  <nav class="navbar navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="{{ url_for('index') }}">EURIKKA</a>
+  </nav>
+
+  <div class="container mt-4">
+        {% block content %}{% endblock  %}
+  </div>    
+        <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+    </body>
+</html>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Add New User{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/bootstrap.css') }}">
+
+{% block content %}
+     <style>
+             .hero {
+                background-image: linear-gradient(rgba(203, 11, 11, 0.101), rgba(0, 0, 0, 0.5)),
+                                  url("{{ url_for('static', filename='images/internals.jpg') }}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: calc(100vh - 56px);
+                
+                
+                
+            }
+     </style>
+
+    <div class="hero">
+      <h3><span style="color: rgb(100, 237, 15);">Register New User</span></h3>
+      <form method="POST" action="{{ url_for('add_user') }}">
+        <input type="text" name="username" placeholder="Enter a username">
+        <input type="password" name="password" placeholder="Enter a password">
+        <input type="age" name="age" placeholder="Enter your age">
+        <input type="text" name="education_level" placeholder="Enter your education level">
+        <input type="submit" value="Register">
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+      </form>
+    </div>
+{% endblock %}

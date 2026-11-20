@@ -1,0 +1,34 @@
+{% extends "base.html"%}
+{% block title %}EURIKKA BIOLOGY{% endblock%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+
+{% block content %}
+    <div class="hero" , container-fluid py-5 text-white>
+        <style>
+             .hero {
+                background-image: linear-gradient(rgba(203, 11, 11, 0.101), rgba(0, 0, 0, 0.5)),
+                                  url("{{ url_for('static', filename='images/internals.jpg') }}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: calc(100vh - 56px);
+                
+                
+                
+            }
+     </style>
+        <span class="text-white">
+        <h1>ANATOMY</h1>
+        <p1>This is the Anatomy Session of EURIKKA BIOLOGY.</p1>
+        <p2>Search an Organ system in the seach box below</p2>
+        <p3>eg Digestive System, begin each word with caps with the others lowercased</p3>
+        <p4>Example: Digestive System, Respiratory System, etc.</p4>
+    
+        <form method="POST" action="{{ url_for('ANATOMY') }}">
+            <input type ="text" name="Organ_System" placeholder="Search Organ System here">
+            <input type="submit" value="Search">
+            <a href="{{ url_for('index') }}" class="btn btn-primary">Back</a>
+        </form>
+    </div>
+{% endblock %}

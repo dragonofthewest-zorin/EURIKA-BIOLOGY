@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block title %}EURIKKA BIOLOGY{% endblock%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+{% block content %}
+<div class="container-fluid">
+    <h1>File Upload</h1>
+    <form method="Post" action="{{ url_for('upload') }}" enctype="multipart/form-data">
+        <input type="file" name="file" accept="application/pdf", application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document", required>
+        <input type="submit" value="Upload">
+    </form>
+</div>
+
+
+{% endblock %}

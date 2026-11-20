@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up Successful{% endblock %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+{% block content %}
+<div class="hero">
+    <style>
+             .hero {
+                background-image: linear-gradient(rgba(203, 11, 11, 0.101), rgba(0, 0, 0, 0.5)),
+                                  url("{{ url_for('static', filename='images/onit.jpg') }}");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                height: calc(100vh - 56px);
+                
+                
+                
+            }
+     </style>
+    <h1>Sign Up Successful!</h1>
+    <p>Welcome to EURIKKA BIOLOGY</p>
+    <p>Hello, {{ username }}! You have been added successfully.</p>
+    <a href="{{ url_for('ANATOMY') }}" class = "btn btn-primary">Anatomy</a>
+    <a href="{{url_for('upload')}}" class = "btn btn-primary">Upload</a>
+</div>
+{% endblock %}
